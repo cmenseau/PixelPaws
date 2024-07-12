@@ -1,17 +1,44 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+
+
 export default function CreatePet() {
   const [form, setForm] = useState({ name: '', type: '', colour: '' })
+  const router = useRouter()
 
-  const ckjsdv = 'hello'
+  const handleSubmit = async (event: any) => {
+    event.preventDefault(); 
 
-  function handleSubmit() {}
+    //const formData = new FormData(event.target); 
+
+    try {
+      console.log("pet", form.name, form.type, form.colour)
+
+      // TODO : turn into a post once the API is available on C# server
+
+      // fetch via a route handler (actual server call to back-end is in api/pet/route.ts)
+      const resp = await fetch("/api/pet", {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({name:form.name, type:form.type, colour:form.colour})
+      })
+
+      console.log("create-pet page", resp)
+
+      router.push('/my-pet')
+    } catch (error) {
+      // Handle error
+      console.error('Error submitting form:', error);
+    }
+  };
 
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        {/* <h1>{ckjsdv}</h1> */}
         <label htmlFor="pet-name">Pet Name: </label>
         <input
           required
