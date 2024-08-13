@@ -16,7 +16,7 @@ export default function CreatePet() {
     try {
       console.log("pet", form.name, form.type, form.colour)
 
-      // TODO : turn into a post once the API is available on C# server
+      // TODO : use actual user id
 
       // fetch via a route handler (actual server call to back-end is in api/pet/route.ts)
       const resp = await fetch("/api/pet", {
@@ -24,7 +24,7 @@ export default function CreatePet() {
           'Content-Type': 'application/json'
         },
         method: "POST",
-        body: JSON.stringify({name:form.name, type:form.type, colour:form.colour})
+        body: JSON.stringify({name:form.name, type:form.type, colour:form.colour, userid:1})
       })
 
       console.log("create-pet page", resp)

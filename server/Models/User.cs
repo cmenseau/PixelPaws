@@ -17,5 +17,7 @@ public class User
 
     [Column("birthdate")]
     public DateTime? Birthdate { get; internal set; }
+
+    public Pet? Pet {get; internal set;}
 }
 

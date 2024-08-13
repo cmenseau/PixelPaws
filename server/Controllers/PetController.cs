@@ -29,4 +29,23 @@ public class PetController : ControllerBase
 
         return pet;
     }
+
+    // POST: api/pet/new-pet
+    [HttpPost("new-pet")]
+    public async Task<ActionResult<Pet>> PostPet([FromBody]PetDto p)
+    {
+        var pet = new Pet
+        {
+            Name = p.name,
+            Type = p.type,
+            Colour = p.colour,
+            UserId = p.userId,
+        };
+        
+        var createdPet = await _context.Pets.AddAsync(pet);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetPet), new { id = createdPet.Entity.Id }, p);
+
+    }
 }

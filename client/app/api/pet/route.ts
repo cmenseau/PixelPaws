@@ -1,10 +1,27 @@
 
 export async function POST(req: Request) {
-    console.log("api-post-pet", req)
+    const body = await req.json()
 
-    // TODO : replace by POST pet once done in C#
-    let res = await fetch('http://localhost:5000/api/user');
-    const data = await res.json()
+    let new_body = {
+        name: body.name,
+        type: body.type,
+        colour: body.colour,
+        userId: body.userid
+    }
 
-    return Response.json({ data })
+    console.log(JSON.stringify(new_body))
+
+    const url = 'http://localhost:5000/api/pet/new-pet'
+
+    let res = await fetch(url, {
+        headers: {
+            'Content-Type': 'application/json'
+          },
+        method: "POST",
+        body: JSON.stringify(new_body)
+      })
+
+    const response_details = await res.json()
+    
+    return Response.json({response_details})
 }
