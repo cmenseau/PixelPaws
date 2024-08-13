@@ -35,3 +35,17 @@ INSERT INTO public.pets(
 	;
 
 SELECT * from pets;
+
+
+ALTER TABLE IF EXISTS public.pets
+    ADD COLUMN userid bigint NOT NULL DEFAULT 1;
+
+ALTER TABLE IF EXISTS public.pets
+    ALTER COLUMN userid DROP DEFAULT;
+
+ALTER TABLE IF EXISTS public.pets
+    ADD FOREIGN KEY (userid)
+    REFERENCES public.users (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE
+    NOT VALID;
