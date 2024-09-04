@@ -39,37 +39,75 @@ export default function CreatePet() {
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="pet-name">Pet Name: </label>
-        <input
-          required
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          type="text"
-          name="pet-name"
-          id="pet-name"
-          value={form.name}
-          placeholder="Pet Name"
-        />
-        <label htmlFor="pet-type">Pet Type: </label>
-        <input
-          required
-          onChange={(e) => setForm({ ...form, type: e.target.value })}
-          type="text"
-          name="pet-type"
-          id="pet-type"
-          value={form.type}
-          placeholder="Pet Type"
-        />
-        <label htmlFor="pet-colour">Pet Colour: </label>
-        <input
-          required
-          onChange={(e) => setForm({ ...form, colour: e.target.value })}
-          type="text"
-          name="pet-colour"
-          id="pet-colour"
-          value={form.colour}
-          placeholder="Pet colour"
-        />
-        <button type="submit">Create your pet</button>
+        <div className="space-y-12">
+          <div className="pb-12">
+            <h2 className="text-base font-semibold leading-7 text-gray-900">Choose your pet</h2>
+
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="sm:col-span-4">
+                <label 
+                  htmlFor="pet-name" 
+                  className="block text-sm font-medium leading-6 text-gray-900">Pet Name: </label>
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    required
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    type="text"
+                    name="pet-name"
+                    id="pet-name"
+                    value={form.name}
+                    placeholder="Garfield"
+                    className="block w-full border-transparent p-3 sm:text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="sm:col-span-4">
+                <label 
+                  htmlFor="pet-type" 
+                  className="block text-sm font-medium leading-6 text-gray-900">Pet Type: </label>
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    required
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    type="text"
+                    name="pet-type"
+                    id="pet-type"
+                    value={form.type}
+                    placeholder="cat"
+                    className="block w-full border-transparent p-3 sm:text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="sm:col-span-4">
+                <label 
+                  htmlFor="pet-colour" 
+                  className="block text-sm font-medium leading-6 text-gray-900">Pet Colour: </label>
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    required
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    type="text"
+                    name="pet-colour"
+                    id="pet-colour"
+                    value={form.colour}
+                    placeholder="orange"
+                    className="block w-full border-transparent p-3 sm:text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+                
+            <div className="mt-6 flex items-center justify-end gap-x-6">
+              <button type="submit" className="rounded-md bg-pastel-orange hover:bg-pastel-yellow py-2 text-sm font-semibold text-gray-600 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 px-4 border-b-4 border-pastel-orange rounded">Create your pet</button>
+            </div>
+          </div>
+        </div>
       </form>
     </main>
   )

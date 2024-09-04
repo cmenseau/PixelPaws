@@ -16,21 +16,23 @@ export default function PetActions() {
 
     return (
         <>
-            <button 
-                onClick={()=>sleep()} 
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    Put to sleep
-            </button>
-            <button
-                onClick={()=>feed()}
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    Feed
-            </button>
-            <button 
-                onClick={()=>clean()}
-                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    Clean
-            </button>
+            <div>
+                <button 
+                    onClick={()=>sleep()} 
+                    className="m-4 bg-pastel-orange hover:bg-pastel-yellow text-gray-600 font-bold py-2 px-4 border-b-4 border-pastel-orange rounded">
+                        Put to sleep
+                </button>
+                <button
+                    onClick={()=>feed()}
+                    className="m-4 bg-pastel-orange hover:bg-pastel-yellow text-gray-600 font-bold py-2 px-4 border-b-4 border-pastel-orange rounded">
+                        Feed
+                </button>
+                <button 
+                    onClick={()=>clean()}
+                    className="m-4 bg-pastel-orange hover:bg-pastel-yellow text-gray-600 font-bold py-2 px-4 border-b-4 border-pastel-orange rounded">
+                        Clean
+                </button>
+            </div>
         </>
     )
 }

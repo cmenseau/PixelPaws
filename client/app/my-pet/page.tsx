@@ -25,11 +25,33 @@ export default async function MyPet() {
 
     return  (
         <>
-            <h1>{pet_data.name}</h1>
-            <h1>{pet_data.type}</h1>
-            <h1>{pet_data.colour}</h1>
-            <PetActions></PetActions>
-            <PetDisplay type={pet_data.type} colour={pet_data.colour}></PetDisplay>
+            <div className="flex flex-col justify-center items-center m-5">
+                <h1 className="text-xl font-bold">Hi {pet_data.name} ! 👋</h1>
+
+                <PetDisplay type={pet_data.type} colour={pet_data.colour}></PetDisplay> 
+
+                <div className="w-full">
+                    <div className="flex justify-between mb-1">
+                        <span className="text-base font-medium text-pastel-blue">Energy</span>
+                        <span className="text-sm font-medium text-pastel-blue">45%</span>
+                    </div>
+                    <div className="h-4 w-full bg-gray-200 rounded-full h-2.5">
+                        <div className="h-4 bg-pastel-blue h-2.5 rounded-full w-[45%] text-center p-0.5 text-xs font-medium"></div>
+                    </div>
+                </div>
+                
+                <div className="w-full">
+                    <div className="flex justify-between mb-1">
+                        <span className="text-base font-medium text-pastel-blue">Cleanliness</span>
+                        <span className="text-sm font-medium text-pastel-blue">90%</span>
+                    </div>
+                    <div className="h-4 w-full bg-gray-200 rounded-full h-2.5">
+                        <div className="h-4 bg-pastel-blue h-2.5 rounded-full w-[90%] text-center p-0.5 text-xs font-medium"></div>
+                    </div>
+                </div>
+
+                <PetActions></PetActions>
+            </div>
         </>
     )
 }

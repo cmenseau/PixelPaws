@@ -13,6 +13,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        // https://colorhunt.co/palette/ffe9d0fffed3bbe9ffb1afff
+        "pastel-orange":"#FFE9D0",
+        "pastel-yellow":"#FFFED3",
+        "pastel-blue":"#BBE9FF",
+        "pastel-purple":"#B1AFFF",
+      },
     },
   },
   plugins: [],
